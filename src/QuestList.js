@@ -3,7 +3,7 @@ import QuestItem from "./QuestItem";
 export default function QuestList(props) {
     return (
         <div className="flex flex-col overflow-y-auto scrollbar-thin gap-6 w-[80%]">
-            {props.quest.map((quest) => {
+            {props.quests?.map((quest) => {
                 return (
                     <QuestItem
                     key={quest.id}
@@ -13,6 +13,6 @@ export default function QuestList(props) {
                     />
                 );
             })}
-        </div>
-    );
+        </div>
+    );
 }
