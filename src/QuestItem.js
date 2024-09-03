@@ -46,6 +46,7 @@ export default function QuestItem(props) {
                         if (editMode) props.saveEditQuest(props.quest, title);
                         setEditMode(!editMode);
                     }}>Editar</button>
+                    
                     <button>Excluir</button>
                 </div>
             )}

@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import AddQuest from "./AddQuest";
 import QuestList from "./QuestList";
