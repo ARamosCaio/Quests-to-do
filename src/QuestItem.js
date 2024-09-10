@@ -47,7 +47,14 @@ export default function QuestItem(props) {
                         setEditMode(!editMode);
                     }}>Editar</button>
                     
-                    <button>Excluir</button>
+                    <button onClick={() => {
+                        if (concluded) return;
+                        else props.saveDeleteQuest(props.quest);
+                        
+                    }}
+                    >
+                    Excluir
+                    </button>
                 </div>
             )}
 

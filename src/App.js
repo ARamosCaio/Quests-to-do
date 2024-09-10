@@ -60,6 +60,18 @@ function App() {
   const concludedQuests = quests.filter((quest) => quest.status === "concluído");
   const notConcludedQuests = quests.filter((quest) => quest.status === "aberto");
 
+  function saveDeleteQuest(quest) {
+    let auxQuests = quests;
+
+    const filterAuxQuests = auxQuests.filter(
+      (auxQuests) => auxQuests !== quest.id
+    );
+
+    localStorage.setItem("quests", JSON.stringify(filterAuxQuests));
+    getQuests();
+  }
+
+
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="card w-[80%] lg:w-[50%] h-[70%] shadow-md rounded-sm transform ease-out duration-300 items-center p-10 gap-5">
@@ -74,6 +86,7 @@ function App() {
             quests={notConcludedQuests}
             saveEditQuest={saveEditQuest}
             saveConcludedQuest={saveConcludedQuest}
+            saveDeleteQuest={saveDeleteQuest}
           />
         </div>
 
@@ -83,6 +96,7 @@ function App() {
             quests={concludedQuests}
             saveEditQuest={saveEditQuest}
             saveConcludedQuest={saveConcludedQuest}
+            saveDeleteQuest={saveDeleteQuest}
           />
         </div>
       </div>
