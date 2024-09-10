@@ -64,7 +64,7 @@ function App() {
     let auxQuests = quests;
 
     const filterAuxQuests = auxQuests.filter(
-      (auxQuests) => auxQuests !== quest.id
+      (auxQuest) => auxQuest.id !== quest.id
     );
 
     localStorage.setItem("quests", JSON.stringify(filterAuxQuests));

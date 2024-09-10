@@ -11,7 +11,7 @@ export default function QuestItem(props) {
     const concluded = props.quest.status === "concluído"
 
     return (
-        <div className="flex gap-4 flex-col md: flex-row items-center">
+        <div className="flex gap-4 flex-col md: flex-row items-center" data-testid="questItem">
             <div className="flex gap-4 items-center w-full sm:2-[80%]">
                 <input
                     disabled={concluded}
@@ -32,17 +32,20 @@ export default function QuestItem(props) {
                         defaultValue={title}
                         onChange={(e) => setTitle(e.target.value)}
                         className="rounded-full bg-secundary pl-2 w-full input-sm flex focus:outline-none"
+                        data-testid="input"
                     />
 
                 ) : (
-                    <p className={`break-words ${concluded ? "line-through" : ""}`}>
+                    <p className={`break-words ${concluded ? "line-through" : ""}`} data-testid="title">
                         {props.quest.title}
                     </p>
                 )}
             </div>
             {!concluded && (
-                <div className="flex gap-4 w-full sm:w-fit justify-center">
-                    <button onClick={() => {
+                <div className="flex gap-4 w-full sm:w-fit justify-center" data-testid="buttons"> 
+                    <button
+                    data-testid="editButton"
+                    onClick={() => {
                         if (editMode) props.saveEditQuest(props.quest, title);
                         setEditMode(!editMode);
                     }}>Editar</button>
